@@ -111,7 +111,8 @@ DeadlineCard.Header = function DeadlineCardHeader() {
           type="button"
           className={`toggle-check-btn ${assignment.completed ? 'completed' : ''}`}
           onClick={() => onToggleComplete?.(assignment.id)}
-          title={assignment.completed ? 'Đánh dấu chưa hoàn thành' : 'Đánh dấu hoàn thành'}
+          title={assignment.completed ? 'Đánh dấu chưa hoàn thành (Làm lại)' : 'Đánh dấu đã hoàn thành'}
+          aria-label={assignment.completed ? 'Đánh dấu chưa hoàn thành' : 'Đánh dấu đã hoàn thành'}
         >
           {assignment.completed ? (
             <CheckCircle2 size={20} className="check-icon-active" />
@@ -198,6 +199,8 @@ DeadlineCard.Footer = function DeadlineCardFooter() {
           type="button"
           className={`btn-action ${assignment.completed ? 'btn-action-undo' : 'btn-action-complete'}`}
           onClick={() => onToggleComplete?.(assignment.id)}
+          title={assignment.completed ? 'Chuyển lại về trạng thái chưa hoàn thành' : 'Đánh dấu bài tập đã hoàn thành'}
+          aria-label={assignment.completed ? 'Làm lại bài tập' : 'Hoàn thành bài tập'}
         >
           {assignment.completed ? 'Làm lại' : 'Hoàn thành'}
         </button>
@@ -206,7 +209,8 @@ DeadlineCard.Footer = function DeadlineCardFooter() {
           type="button"
           className="btn-action btn-action-delete"
           onClick={() => onDelete?.(assignment.id)}
-          title="Xóa bài tập này"
+          title="Xóa bài tập này khỏi danh sách"
+          aria-label="Xóa bài tập"
         >
           <Trash2 size={15} />
         </button>

@@ -59,6 +59,8 @@ export function DeadlineStatsBar({
           type="button"
           className={`stat-card ${activeFilter === DeadlineStatusFilter.ALL ? 'active' : ''}`}
           onClick={() => onSelectFilter(DeadlineStatusFilter.ALL)}
+          title="Bấm để lọc: Xem tất cả bài tập"
+          aria-label="Lọc tất cả bài tập"
         >
           <div className="stat-icon-wrap icon-blue">
             <ListTodo size={22} />
@@ -73,6 +75,8 @@ export function DeadlineStatsBar({
           type="button"
           className={`stat-card ${activeFilter === DeadlineStatusFilter.PENDING ? 'active' : ''}`}
           onClick={() => onSelectFilter(DeadlineStatusFilter.PENDING)}
+          title="Bấm để lọc: Xem các bài tập đang chờ làm"
+          aria-label="Lọc bài tập đang chờ làm"
         >
           <div className="stat-icon-wrap icon-amber">
             <Clock size={22} />
@@ -87,6 +91,8 @@ export function DeadlineStatsBar({
           type="button"
           className={`stat-card ${activeFilter === DeadlineStatusFilter.OVERDUE ? 'active' : ''}`}
           onClick={() => onSelectFilter(DeadlineStatusFilter.OVERDUE)}
+          title="Bấm để lọc: Xem các bài tập đã quá hạn nộp"
+          aria-label="Lọc bài tập đã quá hạn"
         >
           <div className="stat-icon-wrap icon-rose">
             <AlertTriangle size={22} />
@@ -101,6 +107,8 @@ export function DeadlineStatsBar({
           type="button"
           className={`stat-card stat-card-urgent`}
           onClick={() => onSelectFilter(DeadlineStatusFilter.PENDING)}
+          title="Bấm để lọc: Xem các bài tập cần nộp gấp trong hôm nay"
+          aria-label="Lọc bài tập có hạn chót hôm nay"
         >
           <div className="stat-icon-wrap icon-orange">
             <Flame size={22} />
@@ -115,6 +123,8 @@ export function DeadlineStatsBar({
           type="button"
           className={`stat-card ${activeFilter === DeadlineStatusFilter.COMPLETED ? 'active' : ''}`}
           onClick={() => onSelectFilter(DeadlineStatusFilter.COMPLETED)}
+          title="Bấm để lọc: Xem các bài tập đã hoàn thành"
+          aria-label="Lọc bài tập đã hoàn thành"
         >
           <div className="stat-icon-wrap icon-emerald">
             <CheckCircle2 size={22} />

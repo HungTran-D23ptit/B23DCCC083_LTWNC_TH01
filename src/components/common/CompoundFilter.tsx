@@ -99,6 +99,8 @@ CompoundFilter.Search = function SearchInput() {
           type="button"
           className="search-clear-btn"
           onClick={() => onSearchChange('')}
+          title="Xóa nội dung tìm kiếm"
+          aria-label="Xóa nội dung tìm kiếm"
         >
           ✕
         </button>

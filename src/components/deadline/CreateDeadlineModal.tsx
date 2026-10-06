@@ -117,7 +117,13 @@ export function CreateDeadlineModal({
               <p>Điền thông tin bài tập để hệ thống tự động theo dõi hạn nộp</p>
             </div>
           </div>
-          <button type="button" className="btn-close-modal" onClick={onClose}>
+          <button
+            type="button"
+            className="btn-close-modal"
+            onClick={onClose}
+            title="Đóng cửa sổ thêm bài tập (Hủy)"
+            aria-label="Đóng cửa sổ"
+          >
             <X size={20} />
           </button>
         </div>
