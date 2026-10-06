@@ -21,7 +21,7 @@ export interface AssignmentsState {
   selectedSubject: string;
   selectedPriority: PriorityLevel | 'ALL';
   searchTerm: string;
-  sortBy: 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title';
+  sortBy: 'urgentFirst' | 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title';
 }
 
 const initialState: AssignmentsState = {
@@ -32,7 +32,7 @@ const initialState: AssignmentsState = {
   selectedSubject: 'ALL',
   selectedPriority: 'ALL',
   searchTerm: '',
-  sortBy: 'dueDateAsc',
+  sortBy: 'urgentFirst',
 };
 
 export const fetchAssignments = createAsyncThunk(
@@ -109,7 +109,9 @@ export const assignmentsSlice = createSlice({
 
     setSortBy: (
       state,
-      action: PayloadAction<'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title'>
+      action: PayloadAction<
+        'urgentFirst' | 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title'
+      >
     ) => {
       state.sortBy = action.payload;
     },

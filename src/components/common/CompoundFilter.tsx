@@ -12,8 +12,10 @@ interface CompoundFilterContextValue {
   availableSubjects: string[];
   selectedPriority: PriorityLevel | 'ALL';
   onPriorityChange: (priority: PriorityLevel | 'ALL') => void;
-  sortBy: 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title';
-  onSortChange: (sort: 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title') => void;
+  sortBy: 'urgentFirst' | 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title';
+  onSortChange: (
+    sort: 'urgentFirst' | 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title'
+  ) => void;
 }
 
 const CompoundFilterContext = createContext<CompoundFilterContextValue | undefined>(undefined);
@@ -160,13 +162,19 @@ CompoundFilter.SortDropdown = function SortDropdown() {
         value={sortBy}
         onChange={(e) =>
           onSortChange(
-            e.target.value as 'dueDateAsc' | 'dueDateDesc' | 'priority' | 'title'
+            e.target.value as
+              | 'urgentFirst'
+              | 'dueDateAsc'
+              | 'dueDateDesc'
+              | 'priority'
+              | 'title'
           )
         }
         className="filter-select"
       >
-        <option value="dueDateAsc">Hạn nộp: Sớm nhất trước</option>
-        <option value="dueDateDesc">Hạn nộp: Muộn nhất trước</option>
+        <option value="urgentFirst">Hạn nộp: Sắp đến hạn nhất</option>
+        <option value="dueDateAsc">Theo ngày: Cũ nhất → Mới nhất</option>
+        <option value="dueDateDesc">Theo ngày: Mới nhất → Cũ nhất</option>
         <option value="priority">Độ ưu tiên: Cao đến thấp</option>
         <option value="title">Tên bài tập: A → Z</option>
       </select>

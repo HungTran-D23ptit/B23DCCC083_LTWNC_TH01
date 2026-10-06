@@ -91,6 +91,26 @@ export function AssignmentsTab() {
     }
 
     result.sort((a, b) => {
+      if (sortBy === 'urgentFirst') {
+        const now = Date.now();
+        const diffA = new Date(a.dueDate).getTime() - now;
+        const diffB = new Date(b.dueDate).getTime() - now;
+
+        const isPendingA = diffA >= 0;
+        const isPendingB = diffB >= 0;
+
+        // 1. Chưa quá hạn (sắp đến hạn) xếp trước bài đã quá hạn
+        if (isPendingA && !isPendingB) return -1;
+        if (!isPendingA && isPendingB) return 1;
+
+        // 2. Cùng chưa quá hạn: bài nào hạn gần hơn (diff nhỏ hơn) lên trước
+        if (isPendingA && isPendingB) {
+          return diffA - diffB;
+        }
+
+        // 3. Cùng đã quá hạn: bài nào mới quá hạn gần đây hơn xếp trước
+        return diffB - diffA;
+      }
       if (sortBy === 'dueDateAsc') {
         return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
       }
