@@ -138,7 +138,7 @@ DeadlineCard.Body = function DeadlineCardBody() {
 
   return (
     <div className="deadline-card-body">
-      <h3 className={`deadline-title ${assignment.completed ? 'text-strikethrough' : ''}`}>
+      <h3 className="deadline-title">
         {assignment.title}
       </h3>
 

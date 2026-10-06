@@ -551,12 +551,8 @@ button, input, select, textarea {
 }
 
 .deadline-card.card-completed {
-  opacity: 0.75;
   border-left: 4px solid var(--accent-emerald);
-}
-
-.deadline-card.card-completed:hover {
-  opacity: 1;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), var(--bg-surface));
 }
 
 .deadline-card-header {
