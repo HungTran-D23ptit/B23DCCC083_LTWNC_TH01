@@ -5,7 +5,6 @@ import {
   ListTodo,
   Clock,
   AlertTriangle,
-  Flame,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -24,10 +23,7 @@ export function DeadlineStatsBar({
     const total = assignments.length;
     let completed = 0;
     let overdue = 0;
-    let urgent = 0;
     let pending = 0;
-
-    const now = new Date();
 
     assignments.forEach((asn) => {
       if (asn.completed) {
@@ -36,20 +32,13 @@ export function DeadlineStatsBar({
         pending++;
         if (isOverdue(asn.dueDate, false)) {
           overdue++;
-        } else {
-          const due = new Date(asn.dueDate);
-          const diffMs = due.getTime() - now.getTime();
-          const remainingDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-          if (remainingDays === 0) {
-            urgent++;
-          }
         }
       }
     });
 
     const completionRate = total > 0 ? Math.round((completed / total) * 100) : 0;
 
-    return { total, completed, overdue, urgent, pending, completionRate };
+    return { total, completed, overdue, pending, completionRate };
   }, [assignments]);
 
   return (
@@ -100,22 +89,6 @@ export function DeadlineStatsBar({
           <div className="stat-content">
             <div className="stat-val">{stats.overdue}</div>
             <div className="stat-lbl">Quá hạn nộp</div>
-          </div>
-        </button>
-
-        <button
-          type="button"
-          className={`stat-card stat-card-urgent`}
-          onClick={() => onSelectFilter(DeadlineStatusFilter.PENDING)}
-          title="Bấm để lọc: Xem các bài tập cần nộp gấp trong hôm nay"
-          aria-label="Lọc bài tập có hạn chót hôm nay"
-        >
-          <div className="stat-icon-wrap icon-orange">
-            <Flame size={22} />
-          </div>
-          <div className="stat-content">
-            <div className="stat-val">{stats.urgent}</div>
-            <div className="stat-lbl">Hạn hôm nay</div>
           </div>
         </button>
 
