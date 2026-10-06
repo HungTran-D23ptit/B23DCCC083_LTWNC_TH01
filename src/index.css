@@ -1104,34 +1104,14 @@ button, input, select, textarea {
 }
 
 .app-footer {
-  padding: 20px 24px;
+  padding: 16px 24px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.tech-stack-pills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-.tech-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
 .footer-copyright {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
 }

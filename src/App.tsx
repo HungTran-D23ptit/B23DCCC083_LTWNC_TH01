@@ -4,9 +4,6 @@ import {
   GraduationCap,
   Sun,
   Moon,
-  Code2,
-  Cpu,
-  Layers,
 } from 'lucide-react';
 
 export function App() {
@@ -61,17 +58,6 @@ export function App() {
       </main>
 
       <footer className="app-footer glass-panel">
-        <div className="tech-stack-pills">
-          <span className="tech-pill">
-            <Code2 size={13} /> Buổi 1: TypeScript Nâng cao (Generics, Type Guards, Discriminated Unions)
-          </span>
-          <span className="tech-pill">
-            <Layers size={13} /> Buổi 2: React Design Patterns (Custom Hook useDeadlineCalculator & Compound Component)
-          </span>
-          <span className="tech-pill">
-            <Cpu size={13} /> Buổi 3: Redux Toolkit + TypeScript (Feature Slice, Typed Hooks, createAsyncThunk Mock API)
-          </span>
-        </div>
         <p className="footer-copyright">
           © 2026 Student Deadline Tracker • Học viện Công nghệ Bưu chính Viễn thông (PTIT)
         </p>
